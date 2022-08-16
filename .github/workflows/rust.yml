@@ -16,7 +16,7 @@ jobs:
 
     steps:
     - name: Checking out
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
     - name: Running clippy
       uses: ./.github/actions/rust-cargo-run
       with:
