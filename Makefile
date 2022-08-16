@@ -6,7 +6,7 @@ VERSION ?= $(error VERSION environment variable must be set)
 
 # Run cargo check
 check: deps-build
-	cargo check --workspace --tests --benches --lib --bins --examples
+	cargo clippy --all --all-targets -- -D warnings
 
 # Ensure we have the build dependencies
 deps-build:
