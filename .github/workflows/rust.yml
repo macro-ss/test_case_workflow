@@ -10,6 +10,21 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
+  check-clippy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checking out
+      uses: actions/checkout@v3
+    - name: Running clippy
+      uses: ./.github/actions/rust-cargo-run
+      with:
+        command: clippy
+        args: --all --all-targets -- -D warnings
+        components: clippy
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+
   build:
 
     runs-on: ubuntu-latest
