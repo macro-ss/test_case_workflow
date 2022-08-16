@@ -11,6 +11,7 @@ check: deps-build
 # Ensure we have the build dependencies
 deps-build:
 	rustup target add wasm32-unknown-unknown
+	rustup component add clippy
 
 # Run cargo test
 test: deps-build
