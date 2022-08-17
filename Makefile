@@ -4,6 +4,10 @@ SHELL=/usr/bin/env bash
 BUMP ?= patch
 VERSION ?= $(error VERSION environment variable must be set)
 
+# Run cargo fmt
+rustfmt: deps-build
+	cargo fmt -- --check
+
 # Run cargo check
 check: deps-build
 	cargo clippy --all --all-targets -- -D warnings
